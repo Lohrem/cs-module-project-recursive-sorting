@@ -4,7 +4,14 @@ def merge(arrA, arrB):
     merged_arr = [0] * elements
 
     # Your code here
-
+    a_index, b_index = 0, 0
+    while a_index < len(arrA) and b_index < len(arrB):
+        if arrA[a_index] < arrB[b_index]:
+            merged_arr.append(arrA[a_index])
+            a_index += 1
+        else:
+            merged_arr.append(arrB[b_index])
+            b_index += 1
 
     return merged_arr
 
@@ -12,8 +19,13 @@ def merge(arrA, arrB):
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
     # Your code here
-
-
+    if len(arr) <= 1:
+        return arr
+    else:
+        middle = len(arr) // 2
+        left = arr[:middle]
+        right = arr[middle:]
+        return merge(merge_sort(left), merge_sort(right))
     return arr
 
 
