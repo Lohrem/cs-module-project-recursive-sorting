@@ -21,9 +21,11 @@ def merge_sort(arr):
     # Your code here
     if len(arr) <= 1:
         return arr
-    
-
-
+    else:
+        middle = len(arr) // 2
+        left = arr[:middle]
+        right = arr[middle:]
+        return merge(merge_sort(left), merge_sort(right))
     return arr
 
 
